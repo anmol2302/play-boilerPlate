@@ -1,0 +1,20 @@
+
+
+GET     /                         @controllers.HomeController.index()
+POST    /add-user                 @controllers.UserController.addUser()
+GET     /all-users                @controllers.UserController.allUsers()
+GET     /fetch-user/:id           @controllers.UserController.getUser(id)
+DELETE  /delete-user/:id          @controllers.UserController.deleteUser(id)
+PUT     /update-user              @controllers.UserController.updateUser()
+POST    /search                   @controllers.UserController.searchUser()
+GET     /demo                     @controllers.HomeController.showDemo()
+GET     /req                      @controllers.HomeController.handelReq()
+
+
+# The version parameter is optional. E.g. /api/list-all?version=3.0
+GET   /def/:email        controllers.HomeController.handelDef(email:String,version ?= null,cod?="1",arr:List[Integer])
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file     controllers.Assets.versioned(path="/public", file: Asset)
+
+
+
