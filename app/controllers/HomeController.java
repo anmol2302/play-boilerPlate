@@ -29,7 +29,7 @@ public class HomeController extends Controller {
 
         JsonNode json=request().body().asJson();
 
-        if(json.findPath("name")!=null){
+        if(json.findPath("name").textValue()!=null){
 
             F.Promise<String> promiseOfname = nameHandeler(json.findPath("name").textValue());
             return promiseOfname.map((String s)->ok("my name changed to "+s));
