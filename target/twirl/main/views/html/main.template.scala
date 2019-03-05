@@ -69,8 +69,8 @@ Seq[Any](format.raw/*7.32*/("""
 object main extends main_Scope0.main
               /*
                   -- GENERATED --
-                  DATE: Thu Feb 21 11:03:17 IST 2019
-                  SOURCE: /home/anmol/Downloads/comexample/app/views/main.scala.html
+                  DATE: Tue Mar 05 12:37:20 IST 2019
+                  SOURCE: /Users/anmolgupta/Documents/IntellizProjects/playProjects/play-boilerPlate/app/views/main.scala.html
                   HASH: 4a0abc3c24d36569239003b6313ed68189f42c4a
                   MATRIX: 779->255|904->285|932->287|1011->391|1043->396|1078->404|1104->409|1193->471|1208->477|1271->518|1362->582|1377->588|1438->627|1487->729|1515->731|1542->738|1571->740|1616->758|1631->764|1692->804
                   LINES: 25->7|30->7|32->9|35->12|36->13|36->13|36->13|37->14|37->14|37->14|38->15|38->15|38->15|41->19|42->20|42->20|44->22|44->22|44->22|44->22

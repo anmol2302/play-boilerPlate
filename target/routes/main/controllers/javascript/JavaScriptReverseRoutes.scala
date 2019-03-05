@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/anmol/Downloads/comexample/conf/routes
-// @DATE:Thu Feb 21 11:03:16 IST 2019
+// @SOURCE:/Users/anmolgupta/Documents/IntellizProjects/playProjects/play-boilerPlate/conf/routes
+// @DATE:Tue Mar 05 12:37:19 IST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -21,16 +21,6 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:15
-    def handelDef: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.handelDef",
-      """
-        function(email,version,cod,arr) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "def/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("email", encodeURIComponent(email)) + _qS([(version == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("version", version)), (cod == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("cod", cod)), (""" + implicitly[QueryStringBindable[List[Integer]]].javascriptUnbind + """)("arr", arr)])})
-        }
-      """
-    )
   
     // @LINE:3
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(

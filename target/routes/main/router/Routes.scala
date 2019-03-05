@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/anmol/Downloads/comexample/conf/routes
-// @DATE:Thu Feb 21 11:03:16 IST 2019
+// @SOURCE:/Users/anmolgupta/Documents/IntellizProjects/playProjects/play-boilerPlate/conf/routes
+// @DATE:Tue Mar 05 12:37:19 IST 2019
 
 package router
 
@@ -46,7 +46,6 @@ class Routes extends GeneratedRouter {
     ("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """search""", """@controllers.UserController@.searchUser()"""),
     ("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """demo""", """@controllers.HomeController@.showDemo()"""),
     ("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """req""", """@controllers.HomeController@.handelReq()"""),
-    ("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """def/$email<[^/]+>""", """controllers.HomeController.handelDef(email:String, version:String ?= null, cod:String ?= "1", arr:List[Integer])"""),
     ("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -208,28 +207,11 @@ class Routes extends GeneratedRouter {
     )
   )
 
-  // @LINE:15
-  private[this] lazy val controllers_HomeController_handelDef9_route: Route.ParamsExtractor = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("def/"), DynamicPart("email", """[^/]+""",true)))
-  )
-  private[this] lazy val controllers_HomeController_handelDef9_invoker = createInvoker(
-    controllers.HomeController.handelDef(fakeValue[String], fakeValue[String], fakeValue[String], fakeValue[List[Integer]]),
-    HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "handelDef",
-      Seq(classOf[String], classOf[String], classOf[String], classOf[List[Integer]]),
-      "GET",
-      """ The version parameter is optional. E.g. /api/list-all?version=3.0""",
-      this.prefix + """def/$email<[^/]+>"""
-    )
-  )
-
   // @LINE:17
-  private[this] lazy val controllers_Assets_versioned10_route: Route.ParamsExtractor = Route("GET",
+  private[this] lazy val controllers_Assets_versioned9_route: Route.ParamsExtractor = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned10_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned9_invoker = createInvoker(
     controllers.Assets.versioned(fakeValue[String], fakeValue[Asset]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -237,7 +219,8 @@ class Routes extends GeneratedRouter {
       "versioned",
       Seq(classOf[String], classOf[Asset]),
       "GET",
-      """ Map static resources from the /public folder to the /assets URL path""",
+      """ The version parameter is optional. E.g. /api/list-all?version=3.0
+ Map static resources from the /public folder to the /assets URL path""",
       this.prefix + """assets/$file<.+>"""
     )
   )
@@ -299,16 +282,10 @@ class Routes extends GeneratedRouter {
         controllers_HomeController_handelReq8_invoker.call(play.api.Play.maybeApplication.map(_.injector).getOrElse(play.api.inject.NewInstanceInjector).instanceOf(classOf[controllers.HomeController]).handelReq())
       }
   
-    // @LINE:15
-    case controllers_HomeController_handelDef9_route(params) =>
-      call(params.fromPath[String]("email", None), params.fromQuery[String]("version", Some(null)), params.fromQuery[String]("cod", Some("1")), params.fromQuery[List[Integer]]("arr", None)) { (email, version, cod, arr) =>
-        controllers_HomeController_handelDef9_invoker.call(controllers.HomeController.handelDef(email, version, cod, arr))
-      }
-  
     // @LINE:17
-    case controllers_Assets_versioned10_route(params) =>
+    case controllers_Assets_versioned9_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned10_invoker.call(controllers.Assets.versioned(path, file))
+        controllers_Assets_versioned9_invoker.call(controllers.Assets.versioned(path, file))
       }
   }
 }

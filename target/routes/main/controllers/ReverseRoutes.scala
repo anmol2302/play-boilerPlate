@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/anmol/Downloads/comexample/conf/routes
-// @DATE:Thu Feb 21 11:03:16 IST 2019
+// @SOURCE:/Users/anmolgupta/Documents/IntellizProjects/playProjects/play-boilerPlate/conf/routes
+// @DATE:Tue Mar 05 12:37:19 IST 2019
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -18,12 +18,6 @@ package controllers {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:15
-    def handelDef(email:String, version:String = null, cod:String = "1", arr:List[Integer]): Call = {
-      import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "def/" + implicitly[PathBindable[String]].unbind("email", dynamicString(email)) + queryString(List(if(version == null) None else Some(implicitly[QueryStringBindable[String]].unbind("version", version)), if(cod == "1") None else Some(implicitly[QueryStringBindable[String]].unbind("cod", cod)), Some(implicitly[QueryStringBindable[List[Integer]]].unbind("arr", arr)))))
-    }
   
     // @LINE:3
     def index(): Call = {

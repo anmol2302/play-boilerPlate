@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/anmol/Downloads/comexample/conf/routes
-// @DATE:Thu Feb 21 11:03:16 IST 2019
+// @SOURCE:/Users/anmolgupta/Documents/IntellizProjects/playProjects/play-boilerPlate/conf/routes
+// @DATE:Tue Mar 05 12:37:19 IST 2019
 
 
 package router {

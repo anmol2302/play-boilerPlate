@@ -1,15 +1,10 @@
 package controllers;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
 import play.libs.F;
 import play.mvc.Controller;
-import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.Results;
-import scala.collection.immutable.List;
-
-import java.util.Arrays;
 
 public class HomeController extends Controller {
 
@@ -19,18 +14,16 @@ public class HomeController extends Controller {
     public  Result showDemo(){
         return ok("hello worlds");
     }
-    public Result handelReq(){
-        System.out.println("the proper req"+request());
-         return ok("got request");
+    public F.Promise<Result> handelReq(){
+        F.Promise<Integer> promiseOfInt = F.Promise.promise(() -> intensiveComputation());
+        return promiseOfInt.map((Integer i) ->ok ("hello got "+i));
     }
 
-    public static Result handelDef(String email, String version, String cod, List<Integer> arr){
+    private int intensiveComputation() {
 
-
-        if(version.equalsIgnoreCase("1")){
-            return ok("the email is "+email+"default version code is"+version+"the code is "+cod+"array got"+ Arrays.asList(arr.toString()));
-        }
-        return ok("the email is"+email+"the version is"+version+"the code is "+cod+"array got"+ Arrays.asList(arr.toString()));
+        return 1;
     }
+
+
 
 }

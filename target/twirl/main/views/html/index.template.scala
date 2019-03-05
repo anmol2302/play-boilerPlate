@@ -48,8 +48,8 @@ Seq[Any](format.raw/*1.18*/("""
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Thu Feb 21 11:03:17 IST 2019
-                  SOURCE: /home/anmol/Downloads/comexample/app/views/index.scala.html
+                  DATE: Tue Mar 05 12:37:20 IST 2019
+                  SOURCE: /Users/anmolgupta/Documents/IntellizProjects/playProjects/play-boilerPlate/app/views/index.scala.html
                   HASH: f71d0cd5502cc53272ff51d536e798e342442cf9
                   MATRIX: 527->1|638->17|666->20|698->44|737->46|764->47|816->74|843->81|871->82|906->88
                   LINES: 20->1|25->1|27->3|27->3|27->3|28->4|29->5|29->5|29->5|30->6
