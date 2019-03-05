@@ -1310,3 +1310,5 @@ Caused by: java.lang.IndexOutOfBoundsException: toIndex = 2
 2019-03-05 12:37:55,085 [INFO] from play.core.server.NettyServer in main - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 2019-03-05 12:46:02,434 [INFO] from play.api.Play in main - Application started (Prod)
 2019-03-05 12:46:02,515 [INFO] from play.core.server.NettyServer in main - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2019-03-05 13:07:33,499 [INFO] from play.api.Play in main - Application started (Prod)
+2019-03-05 13:07:33,563 [INFO] from play.core.server.NettyServer in main - Listening for HTTP on /0:0:0:0:0:0:0:0:9000

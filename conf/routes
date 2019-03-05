@@ -9,6 +9,7 @@ PUT     /update-user              @controllers.UserController.updateUser()
 POST    /search                   @controllers.UserController.searchUser()
 GET     /demo                     @controllers.HomeController.showDemo()
 GET     /req                      @controllers.HomeController.handelReq()
+POST   /js                        @controllers.HomeController.handelJson()
 
 
 

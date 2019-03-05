@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/anmolgupta/Documents/IntellizProjects/playProjects/play-boilerPlate/conf/routes
-// @DATE:Tue Mar 05 12:45:24 IST 2019
+// @DATE:Tue Mar 05 13:06:41 IST 2019
 
 package router
 
@@ -46,6 +46,7 @@ class Routes extends GeneratedRouter {
     ("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """search""", """@controllers.UserController@.searchUser()"""),
     ("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """demo""", """@controllers.HomeController@.showDemo()"""),
     ("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """req""", """@controllers.HomeController@.handelReq()"""),
+    ("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """js""", """@controllers.HomeController@.handelJson()"""),
     ("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -207,11 +208,28 @@ class Routes extends GeneratedRouter {
     )
   )
 
-  // @LINE:17
-  private[this] lazy val controllers_Assets_versioned9_route: Route.ParamsExtractor = Route("GET",
+  // @LINE:12
+  private[this] lazy val controllers_HomeController_handelJson9_route: Route.ParamsExtractor = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("js")))
+  )
+  private[this] lazy val controllers_HomeController_handelJson9_invoker = createInvoker(
+    play.api.Play.maybeApplication.map(_.injector).getOrElse(play.api.inject.NewInstanceInjector).instanceOf(classOf[controllers.HomeController]).handelJson(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "handelJson",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """js"""
+    )
+  )
+
+  // @LINE:18
+  private[this] lazy val controllers_Assets_versioned10_route: Route.ParamsExtractor = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned9_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned10_invoker = createInvoker(
     controllers.Assets.versioned(fakeValue[String], fakeValue[Asset]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -282,10 +300,16 @@ class Routes extends GeneratedRouter {
         controllers_HomeController_handelReq8_invoker.call(play.api.Play.maybeApplication.map(_.injector).getOrElse(play.api.inject.NewInstanceInjector).instanceOf(classOf[controllers.HomeController]).handelReq())
       }
   
-    // @LINE:17
-    case controllers_Assets_versioned9_route(params) =>
+    // @LINE:12
+    case controllers_HomeController_handelJson9_route(params) =>
+      call { 
+        controllers_HomeController_handelJson9_invoker.call(play.api.Play.maybeApplication.map(_.injector).getOrElse(play.api.inject.NewInstanceInjector).instanceOf(classOf[controllers.HomeController]).handelJson())
+      }
+  
+    // @LINE:18
+    case controllers_Assets_versioned10_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned9_invoker.call(controllers.Assets.versioned(path, file))
+        controllers_Assets_versioned10_invoker.call(controllers.Assets.versioned(path, file))
       }
   }
 }
