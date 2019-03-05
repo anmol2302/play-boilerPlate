@@ -15,15 +15,13 @@ public class HomeController extends Controller {
         return ok("hello worlds");
     }
     public F.Promise<Result> handelReq(){
-        F.Promise<Integer> promiseOfInt = F.Promise.promise(() -> intensiveComputation());
-        return promiseOfInt.map((Integer i) ->ok ("hello got "+i));
+        F.Promise<Integer>  pr=intensiveComputation();
+        F.Promise<Result> promiseOfInt = pr.map((Integer i) -> ok("got "+i));
+        return promiseOfInt;
     }
 
-    private int intensiveComputation() {
-
-        return 1;
+    private F.Promise<Integer> intensiveComputation() {
+        return F.Promise.pure(1);
     }
-
-
 
 }
